@@ -1,0 +1,14 @@
+#logging:
+#  pattern:
+#    console: "%d{HH:mm:ss.SSS} [%thread] %-5level  %class{36}.%M %L  - %msg%n"
+#
+server:
+  port: 8083
+
+logging-service:
+  enabled: true
+  pointcuts:
+    -
+      pointcut: execution(* ru.clevertec..*controller*..*(..))
+      enabled: true
+      date-format: HH:mm:ss.SSS
