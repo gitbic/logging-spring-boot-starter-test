@@ -6,15 +6,25 @@ server:
   port: 8083
 
 dragon:
+  enabled: on
   worker: vano
-  voin: gogi
+  warriorKing: gogi
+  warriors:
+    - w1
+    - w2
 
+buhlo:
+  - vodka
+  - pivo
+  - vino
 
-logging-service:
+loggingService:
   enabled: on
   pointcuts:
-    - pointcut: execution(* ru.clevertec..*controller*..*(..))
-      enabled: on
-      logging-format:
-        date-format: HH:mm:ss.SSS
-        print-arguments: true
+    - enabled: on
+      patterns:
+        - execution(* ru.clevertec..*controller*..*(..))
+        - execution(* ru.clevertec..*service*..*(..))
+      loggingFormat:
+        dateFormat: HH:mm:ss.SSS
+        printArguments: true
