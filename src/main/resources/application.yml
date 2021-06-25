@@ -5,10 +5,16 @@
 server:
   port: 8083
 
+dragon:
+  worker: vano
+  voin: gogi
+
+
 logging-service:
-  enabled: true
+  enabled: on
   pointcuts:
-    -
-      pointcut: execution(* ru.clevertec..*controller*..*(..))
-      enabled: true
-      date-format: HH:mm:ss.SSS
+    - pointcut: execution(* ru.clevertec..*controller*..*(..))
+      enabled: on
+      logging-format:
+        date-format: HH:mm:ss.SSS
+        print-arguments: true

@@ -40,7 +40,7 @@ public class TestController {
     @ResponseStatus(HttpStatus.OK)
     public ProductTwoDto sendEmail(@RequestBody ProductOneDto productOneDto) {
         System.out.println("=============");
-        pointcutProperties.getPointcuts().forEach((k, v) -> System.out.println("key: " + k + "; value: " + v));
+        pointcutProperties.getPointcuts().forEach((pointcut) -> System.out.println(pointcut));
         System.out.println("=============");
         return modelMapper.map(productOneDto, ProductTwoDto.class);
     }
