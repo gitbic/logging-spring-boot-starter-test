@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.clevertec.logging.starter.config.properties.PointcutProperties;
 import ru.clevertec.startertest.Entity.ProductOneDto;
 import ru.clevertec.startertest.Entity.ProductTwoDto;
 
@@ -14,8 +13,6 @@ import ru.clevertec.startertest.Entity.ProductTwoDto;
 public class TestController {
 
     private final ModelMapper modelMapper;
-    private final PointcutProperties pointcutProperties;
-
 
 
     @GetMapping
@@ -39,9 +36,6 @@ public class TestController {
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public ProductTwoDto sendEmail(@RequestBody ProductOneDto productOneDto) {
-        System.out.println("=============");
-        pointcutProperties.getPointcuts().forEach((pointcut) -> System.out.println(pointcut));
-        System.out.println("=============");
         return modelMapper.map(productOneDto, ProductTwoDto.class);
     }
 }
